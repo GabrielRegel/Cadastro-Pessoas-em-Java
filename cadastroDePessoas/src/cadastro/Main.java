@@ -1,4 +1,5 @@
 package cadastro;
+
 import java.util.Scanner;
 
 public class Main {
@@ -32,11 +33,24 @@ public class Main {
 				int email = scanner.nextInt();
 				scanner.nextLine();
 				
+				pessoas[contador] = new Pessoa(nome, idade, email);
+				contador++;
+				System.out.println("Pessoa cadastrada com sucesso!");
+				break;
+				
 			case 2:
+				if (contador == 0) {
+					System.out.println("Nenhuma pessoa cadstrada.");
+				}else {
+					for(int i=0; i<contador;i++) {
+						
+					}
+				}
+			break;
 				
 			}
 		}
 	
 	}
-	
+
 }
