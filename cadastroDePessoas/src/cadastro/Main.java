@@ -12,7 +12,7 @@ public class Main {
 
 		do {
 			System.out.println("\n===== MENU =====");
-			System.out.println("1 -Cadastrar pessoa");
+			System.out.println("1 - Cadastrar pessoa");
 			System.out.println("2 - Listar pessoas");
 			System.out.println("0 - Sair");
 			System.out.println("Escolha uma opção: ");
@@ -21,7 +21,7 @@ public class Main {
 			
 			switch (opcao) {
 			case 1:
-				System.out.println("Nome: ");
+				System.out.println("Nome:  ");
 				String nome = scanner.nextLine();
 				scanner.nextLine();
 				
@@ -30,10 +30,18 @@ public class Main {
 				scanner.nextLine();
 				
 				System.out.println("Email: ");
-				int email = scanner.nextInt();
+				String email = scanner.nextLine();
 				scanner.nextLine();
 				
-				pessoas[contador] = new Pessoa(nome, idade, email);
+				System.out.println("Telefone: ");
+				double telefone = scanner.nextDouble();
+				scanner.nextLine();
+				
+				System.out.println("CPF: ");
+				String cpf = scanner.nextLine();
+				scanner.nextLine();
+				
+				pessoas[contador] = new Pessoa(nome, idade, email, cpf, telefone);
 				contador++;
 				System.out.println("Pessoa cadastrada com sucesso!");
 				break;
@@ -43,13 +51,21 @@ public class Main {
 					System.out.println("Nenhuma pessoa cadstrada.");
 				}else {
 					for(int i=0; i<contador;i++) {
-						
+						pessoas[i].exibirDados();
 					}
 				}
-			break;
+				break;
+			
+			case 0:
+				System.out.println("Saindo...");
+				break;
 				
+			default:
+				System.out.println("Opção inválida.");
 			}
-		}
+		} while  (opcao != 0);
+			scanner.close();
+		
 	
 	}
 
